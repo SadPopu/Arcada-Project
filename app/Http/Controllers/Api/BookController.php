@@ -11,23 +11,23 @@ use Illuminate\Support\Facades\Validator;
 class BookController extends Controller
 {
     //
-    public function index(){
-        $books = Book::all();
-        
-        if($books->count() > 0) {
-            return response()->json([
-                'status' => 200,
-                'books' => $books
-            ], 200);
-        }
-        else{
-            return response()->json([
-                'status' => 404,
-                'message' => 'No records Found'
-            ], 404);
-        }
-        
+    public function index()
+{
+    $books = Book::with('author')->get();
+
+    if ($books->count() > 0) {
+        return response()->json([
+            'status' => 200,
+            'books' => $books,
+        ], 200);
+    } else {
+        return response()->json([
+            'status' => 404,
+            'message' => 'No records Found',
+        ], 404);
     }
+}
+
     
     public function store(Request $request)
 {
@@ -71,21 +71,23 @@ class BookController extends Controller
 }
 
 
-    public function show($id){
-        $book = Book::find($id);
-        if($book){
-            return response()->json([
-                'status' => 200,
-                'book' => $book
-            ],200);
-        }
-        else{
-            return response()->json([
-                'status' =>  404,
-                'message' =>  'No book found'
-            ],404);
-        }
+public function show($id)
+{
+    $book = Book::with('author')->find($id);
+
+    if ($book) {
+        return response()->json([
+            'status' => 200,
+            'book' => $book,
+        ], 200);
+    } else {
+        return response()->json([
+            'status' => 404,
+            'message' => 'No book found',
+        ], 404);
     }
+}
+
 
     public function edit($id){
         $book = Book::find($id);

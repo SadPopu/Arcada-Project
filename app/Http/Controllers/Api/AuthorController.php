@@ -130,24 +130,29 @@ class AuthorController extends Controller
         }
     }
 
-    public function destroy($id){
-
+    public function destroy($id) {
         $author = Author::find($id);
 
-        if($author){
-
-            $author -> delete();
-
+        if (!$author) {
             return response()->json([
-                'status' => 200,
-                'message' => 'Author Deleted Successfully'
-            ],200);
+                'status' => 404,
+                'message' => 'No such Author found'
+            ], 404);
         }
-        else{
+        
+        if ($author->books->count() > 0) {
             return response()->json([
-                'status' =>  404,
-                'message' =>  'No such Author found'
-            ],404);
+                'status' => 422, 
+                'message' => 'Author cannot be deleted because there are associated books'
+            ], 422);
         }
+
+        $author->delete();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Author Deleted Successfully'
+        ], 200);
     }
+
 }
