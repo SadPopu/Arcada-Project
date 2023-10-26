@@ -10,7 +10,7 @@
 ### How do I start the application
 * Run the following cmd in the main directory:
 * - composer install
-* cp .env.example .env
+* - cp .env.example .env
 * Before the next step you will have to change lines 11 to 16 in .env file with your database info.
 * - php artisan key:generate
 * - php artisan migrate --seed
