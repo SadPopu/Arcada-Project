@@ -8,7 +8,7 @@
 * [Insall MySQL](https://dev.mysql.com/downloads/installer/) or [Install XAMPP](https://sourceforge.net/projects/xampp/) (You will need to create a Database so the application can run without any errors)
 
 ### How do I start the application
-* - Run the following cmd in the main directory:
+* Run the following cmd in the main directory:
 * - composer install
 * cp .env.example .env
 * Before the next step you will have to change lines 11 to 16 in .env file with your database info.
