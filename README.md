@@ -8,12 +8,12 @@
 * [Insall MySQL](https://dev.mysql.com/downloads/installer/) or [Install XAMPP](https://sourceforge.net/projects/xampp/) (You will need to create a Database so the application can run without any errors)
 
 ### How do I start the application
-* Run the following cmd in the main directory:
-* composer install
+* - Run the following cmd in the main directory:
+* - composer install
 * cp .env.example .env
-* - After this step you will have to change lines 11 to 16 in .env file with your database info.
-* php artisan key:generate
-* php artisan migrate --seed
-* php artisan serve
+* Before the next step you will have to change lines 11 to 16 in .env file with your database info.
+* - php artisan key:generate
+* - php artisan migrate --seed
+* - php artisan serve
 
 ### This Application was created to serve as API to the CRUD application, you can get it [here](https://github.com/SadPopu/Arcada-Project-React-Js-Crud) ###
