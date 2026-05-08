@@ -3,7 +3,7 @@
 
 ### How do I get set up? ###
 
-* [Install PHP](https://windows.php.net/index.php)
+* [Install PHP](https://php.net/index.php)
 * [Install Composer](https://getcomposer.org)  
 * [Insall MySQL](https://dev.mysql.com/downloads/installer/) or [Install XAMPP](https://sourceforge.net/projects/xampp/) (You will need to create a Database so the application can run without any errors)
 
